@@ -18,7 +18,7 @@ in
 pkgs.stdenv.mkDerivation {
   name = "ext4-fs.img";
 
-  nativeBuildInputs = [e2fsprogs.bin libfaketime perl];
+  nativeBuildInputs = with pkgs.buildPackages; [e2fsprogs.bin libfaketime perl];
 
   buildCommand =
     ''
