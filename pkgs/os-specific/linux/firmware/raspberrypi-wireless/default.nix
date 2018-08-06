@@ -25,7 +25,8 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ dpkg ];
   unpackCmd = ''
     if ! [[ "$curSrc" =~ \.deb$ ]]; then return 1; fi
-    dpkg -x "$curSrc" .
+    $AR -xf "$curSrc"
+    tar -xf data.tar.xz
   '';
 
   installPhase = ''
